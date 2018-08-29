@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,101 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Guessing_IOS_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I'm thinking of a number between 1 and 100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xji-9I-TaJ">
+                                <rect key="frame" x="21" y="81" width="333" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try and guess what it is" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ne6-q3-2g0">
+                                <rect key="frame" x="97" y="126.5" width="180" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Enter your guess:" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d86-pt-gQD">
+                                <rect key="frame" x="18" y="318.5" width="338" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJG-QJ-qt7">
+                                <rect key="frame" x="18" y="617" width="338" height="30"/>
+                                <color key="backgroundColor" red="0.33747752390000002" green="0.87995302669999997" blue="0.94047296049999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Enter">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="showMessageWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pxr-6P-Nyx"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AhG-wX-05p">
+                                <rect key="frame" x="18" y="488" width="339" height="120.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have 5 guesses left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gc3-6T-S93">
+                                        <rect key="frame" x="0.0" y="0.0" width="339" height="20.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOG-wX-yuX">
+                                        <rect key="frame" x="0.0" y="20.5" width="339" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2k-N0-Dbp">
+                                        <rect key="frame" x="0.0" y="70.5" width="339" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95600228129626208" green="0.95027771673760186" blue="0.9617268458549223" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="ne6-q3-2g0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="97" id="9xt-1n-Zmj"/>
+                            <constraint firstItem="xji-9I-TaJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="21" id="AoZ-5b-dm1"/>
+                            <constraint firstItem="xji-9I-TaJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FkY-gj-Tl2"/>
+                            <constraint firstItem="xji-9I-TaJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="61" id="HCf-i1-4WC"/>
+                            <constraint firstItem="AhG-wX-05p" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="J8b-DF-Akm"/>
+                            <constraint firstItem="xJG-QJ-qt7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="18" id="JaK-zw-7lA"/>
+                            <constraint firstItem="ne6-q3-2g0" firstAttribute="top" secondItem="xji-9I-TaJ" secondAttribute="bottom" constant="25" id="L0z-bG-tTE"/>
+                            <constraint firstItem="ne6-q3-2g0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NCC-br-pF1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xji-9I-TaJ" secondAttribute="trailing" constant="21" id="Nmk-ab-gQj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xJG-QJ-qt7" secondAttribute="bottom" constant="20" id="UYH-MQ-N0P"/>
+                            <constraint firstItem="d86-pt-gQD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="W5m-OQ-k78"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ne6-q3-2g0" secondAttribute="trailing" constant="98" id="Yik-7V-jaE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xJG-QJ-qt7" secondAttribute="trailing" constant="19" id="bc4-qQ-G3L"/>
+                            <constraint firstItem="AhG-wX-05p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="18" id="ca6-U2-DyQ"/>
+                            <constraint firstItem="xJG-QJ-qt7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jft-67-3UV"/>
+                            <constraint firstItem="xJG-QJ-qt7" firstAttribute="top" secondItem="AhG-wX-05p" secondAttribute="bottom" constant="8.6699999999999999" id="lap-Si-1Pb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d86-pt-gQD" secondAttribute="trailing" constant="19" id="uHV-R6-Fxo"/>
+                            <constraint firstItem="d86-pt-gQD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xfD-FJ-gep"/>
+                            <constraint firstItem="d86-pt-gQD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="18" id="yii-6R-Tnf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AhG-wX-05p" secondAttribute="trailing" constant="18" id="zAN-XG-Y0F"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="debug" destination="g2k-N0-Dbp" id="OfB-3r-QTl"/>
+                        <outlet property="guessLeft" destination="gc3-6T-S93" id="VWP-9J-HhN"/>
+                        <outlet property="numEnter" destination="d86-pt-gQD" id="Vuf-XI-Oml"/>
+                        <outlet property="winLose" destination="QOG-wX-yuX" id="Xa6-vp-bRn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="132.26600985221674"/>
         </scene>
     </scenes>
 </document>
