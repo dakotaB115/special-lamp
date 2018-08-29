@@ -35,44 +35,47 @@ class ViewController: UIViewController {
         rand = Int(arc4random_uniform(101))
         guessLeft1 = 5
         debug.text = String(rand)
+        guessLeft.text = "You have \(guessLeft1) guesse;s left"
     }
+    
     @IBAction func showMessage(sender: UIButton) {
-        let input = Int(numEnter.text!)
+        guard let input = Int(numEnter.text!) else {
+            debug.text = "Please enter a valid number"
+            return
+        }
+        
         if input == rand{
             numEnter.text = ""
             let alertController =
-                UIAlertController(title: "You won with \(guessLeft1) guesses left.", message: "Play Again?", preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
+                UIAlertController(title: "You won with \(guessLeft1) guesses left.", message: "Play Again", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Yay", style: UIAlertActionStyle.default, handler: { (action) in
                 self.resetGame()
             }))
-            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
             present(alertController, animated: true, completion: nil)
-        } else if input! > rand {
+        } else if input > rand {
             numEnter.text = ""
             winLose.text = "Guess too high, try again."
             guessLeft1 -= 1
             guessLeft.text = "You have \(guessLeft1) guesses left"
-            if guessLeft1 == 0 && input! != rand {
+            if guessLeft1 == 0 && input != rand {
                 let alertController =
-                    UIAlertController(title: "You lose", message: "Play Again?", preferredStyle: UIAlertControllerStyle.alert)
-                alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
+                    UIAlertController(title: "You lose", message: "Play Again", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Need to get it", style: UIAlertActionStyle.default, handler: { (action) in
                     self.resetGame()
                 }))
-                alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
                 present(alertController, animated: true, completion: nil)
             }
-        } else if input! < rand {
+        } else if input < rand {
             numEnter.text = ""
             winLose.text = "Guess too low, try again"
             guessLeft1 -= 1
             guessLeft.text = "You have \(guessLeft1) guesses left"
-            if guessLeft1 == 0 && input! != rand {
+            if guessLeft1 == 0 && input != rand {
                 let alertController =
-                    UIAlertController(title: "You lose", message: "Play Again?", preferredStyle: UIAlertControllerStyle.alert)
-                    alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
+                    UIAlertController(title: "You lose", message: "Play Again", preferredStyle: UIAlertControllerStyle.alert)
+                    alertController.addAction(UIAlertAction(title: "Need to get it", style: UIAlertActionStyle.default, handler: { (action) in
                         self.resetGame()
                     }))
-                    alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
                     present(alertController, animated: true, completion: nil)
                 }
             }
